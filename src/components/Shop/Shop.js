@@ -11,9 +11,19 @@ const Shop = () => {
 
     // console.log(fakeData);
 
-    const first10 = fakeData.slice(0, 10);
-    const [products, setProducts] = useState(first10);
+    // const first10 = fakeData.slice(0, 10);
+    const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+
+    // data showing from mongo cloud data
+    useEffect(() => {
+        fetch('http://localhost:4000/products')
+        .then(res => res.json())
+          .then(data => {
+            console.log("data from database", data);
+            setProducts(data);
+        });
+    }, []) 
 
     // const handleAddProduct = (product) => {
     //     // console.log('Product Added', product);

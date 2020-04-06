@@ -12,7 +12,8 @@ const Inventory = () => {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify(fakeData) 
-          }).then(res => res.json())
+          })
+          .then(res => res.json())
           .then(data => {
             console.log("Post Success", data);
         });
